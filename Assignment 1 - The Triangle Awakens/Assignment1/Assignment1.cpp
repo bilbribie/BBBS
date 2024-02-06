@@ -6,7 +6,22 @@
 #include <GL/glut.h>
 #define WIDTH 400		
 #define HEIGHT 300	
-static GLubyte frame_buffer[HEIGHT][WIDTH][3];
+static GLubyte frame_buffer[HEIGHT][WIDTH][3]; //to store pixelcolor data
+
+void sortVertices(int points[3][2]) {
+    // Simple bubble sort for 3 elements by their x-coordinate
+    for (int i = 0; i < 2; ++i) {
+        for (int j = i + 1; j < 3; ++j) {
+            if (points[i][0] > points[j][0]) {
+                // Swap the points if they are out of order
+                int tempX = points[i][0], tempY = points[i][1];
+                points[i][0] = points[j][0], points[i][1] = points[j][1];
+                points[j][0] = tempX, points[j][1] = tempY;
+            }
+        }
+    }
+}
+
 
 // Fill each scanline
 // yT = top of the scanline, yB = bottom of the scanline
@@ -105,15 +120,15 @@ void ScanConvertTriangle(
 /* Called when mouse button pressed: */
 void mousebuttonhandler(int button, int state, int x, int y)
 {
-    static int cnt = 0;
-    static int points[3][2];
-    static unsigned char color[3][3] = {
+    static int cnt = 0; // use to count the number of teh triangle
+    static int points[3][2]; // store point of triangle
+    static unsigned char color[3][3] = {  // array to store colorvalue of triangle
       {255,   0,   0},      // r0, g0, b0
       {  0, 255,   0},      // r1, g1, b1
       {  0,   0, 255}       // r2, g2, b2
     };
 
-    //printf("Mouse button event, button=%d, state=%d, x=%d, y=%d\n", button, state, x, y);
+    printf("Mouse button event, button=%d, state=%d, x=%d, y=%d\n", button, state, x, y);
 
     // set a pixel's red color value when left mouse button is pressed down:
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
@@ -121,12 +136,14 @@ void mousebuttonhandler(int button, int state, int x, int y)
         points[cnt][1] = HEIGHT - y - 1;
         cnt++;
 
-        //printf("Mouse clicked=%d, x=%d, y=%d\n", cnt, x, y);
+        // printf("Mouse clicked=%d, x=%d, y=%d\n", cnt, x, y);
+
         if (cnt == 1) {
             memset(frame_buffer, 0, sizeof(frame_buffer));
         }
-
-        if (cnt == 3) {
+        
+        
+        if (cnt == 3) {  
             // TODO: make sure point0, 1, 2 are passed in the correct order x0<=x1<=x2
             if (points[0][0] <= points[1][0]) {
                 if (points[1][0] <= points[2][0]) { // x0 <= x1 <= x2
@@ -178,13 +195,25 @@ void mousebuttonhandler(int button, int state, int x, int y)
                     }
             }
             
-            cnt = 0;
+            /*
+            if (cnt == 3) {
+                sortVertices(points); // Sort the vertices by x-coordinate
+                ScanConvertTriangle(
+                    points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],
+                    points[1][0], points[1][1], color[1][0], color[1][1], color[1][2],
+                    points[2][0], points[2][1], color[2][0], color[2][1], color[2][2]
+                );
+                cnt = 0; // Reset for new triangle
+            }
+            */
+            
+            cnt = 0; // reset for new triangle
         }
     }
 
 
     // cause a display event to occur for GLUT:
-    glutPostRedisplay();
+    glutPostRedisplay(); // request for display update
 }
 
 /* Called by GLUT when a display event occurs: */
@@ -195,16 +224,16 @@ void display(void) {
     glRasterPos2i(-1, -1);
 
     // Write the information stored in "frame_buffer" to the color buffer
-    glDrawPixels(WIDTH, HEIGHT, GL_RGB, GL_UNSIGNED_BYTE, frame_buffer);
-    glFlush();
+    glDrawPixels(WIDTH, HEIGHT, GL_RGB, GL_UNSIGNED_BYTE, frame_buffer); // draw pixel form fram buffer
+    glFlush(); // to ensure all command are execute
 }
 
 int main(int argc, char** argv) {
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(WIDTH, HEIGHT);
-    glutCreateWindow("Frame Buffer Example");
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // to set display
+    glutInitWindowSize(WIDTH, HEIGHT); //set window size
+    glutCreateWindow("Frame Buffer Example"); // create window
 
     // Specify which functions get called for display and mouse events:
     glutDisplayFunc(display);
