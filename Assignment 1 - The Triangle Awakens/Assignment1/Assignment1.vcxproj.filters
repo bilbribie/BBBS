@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TriangleScan_Base.cpp">
+    <ClCompile Include="Assignment1.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

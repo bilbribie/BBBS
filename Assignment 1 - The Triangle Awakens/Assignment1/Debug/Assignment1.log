@@ -1,12 +1,10 @@
-﻿  TriangleScan_Base.cpp
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(19,19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(20,18): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(65,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(66,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(67,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(68,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(70,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(71,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(72,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Beebie\Documents\BBBS\Assignment1\TriangleScan_Base.cpp(73,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Assignment1.vcxproj -> C:\Users\Beebie\Documents\BBBS\Assignment1\Debug\Assignment1.exe
+﻿  Assignment1.cpp
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(69,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(69,50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(86,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(87,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(88,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(91,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(91,31): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Assignment1.cpp(101,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Assignment1.vcxproj -> C:\Users\Beebie\Documents\y3\BBBS\Assignment 1 - The Triangle Awakens\Assignment1\Debug\Assignment1.exe
