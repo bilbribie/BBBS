@@ -1,5 +1,4 @@
 ﻿/* Extend the code to satisfy the assignment 1 requirements */
-//ssss
 
 #include <stdio.h>
 #include <math.h>
@@ -31,98 +30,231 @@ void sortVertices(int points[3][2]) {
     }
 }
 
-/*void FillScanLine(int x, float yStart, float yEnd, unsigned char r, unsigned char g, unsigned char b) {
-    int y, yMin = ceil(fmin(yStart, yEnd)), yMax = floor(fmax(yStart, yEnd));
-    for (y = yMin; y <= yMax; y++) {
-        setPixel(x, y, r, g, b);
-    }
-}*/
-void FillScanLine(int x, float yStart, float yEnd, float rStart, float gStart, float bStart, float rEnd, float gEnd, float bEnd) {
+// Fill each scanline
+// yT = top of the scanline, yB = bottom of the scanline
+
+void FillScanLine(int x, float yT, float rT, float gT, float bT, float yB, float rB, float gB, float bB)
+{
+    int yT_floor, yB_ceil;
     int y;
-    float r, g, b;
-    float mr, mg, mb;
+    float r, g, b, mr, mg, mb;
 
-    // Color gradients
-    mr = (rEnd - rStart) / (yEnd - yStart);
-    mg = (gEnd - gStart) / (yEnd - yStart);
-    mb = (bEnd - bStart) / (yEnd - yStart);
+    yT_floor = floor(yT);
+    yB_ceil = ceil(yB);
 
-    // Initial color values
-    r = rStart + mr * (ceil(yStart) - yStart);
-    g = gStart + mg * (ceil(yStart) - yStart);
-    b = bStart + mb * (ceil(yStart) - yStart);
+    float dy = yT - yB;
+    if (dy == 0) {      // <-- Add this line
+        dy = 1;         // <-- Add this line
+    }
 
-    // Loop over each pixel in the scan line
-    for (y = ceil(yStart); y <= floor(yEnd); y++) {
-        // Set the pixel with the current color values
-        setPixel(x, y, (GLubyte)(r + 0.5f), (GLubyte)(g + 0.5f), (GLubyte)(b + 0.5f));
+    mr = (rT - rB) / dy;  // Change (yT - yB) to dy
+    mg = (gT - gB) / dy;  // Change (yT - yB) to dy
+    mb = (bT - bB) / dy;  // Change (yT - yB) to dy
+    r = rB + (yB_ceil - yB) * mr;
+    g = gB + (yB_ceil - yB) * mg;
+    b = bB + (yB_ceil - yB) * mb;
 
-        // Increment the color for the next pixel
+    for (y = yB_ceil; y <= yT_floor; y++) {
+        frame_buffer[y][x][0] = (unsigned char)(r + 0.5f);
+        frame_buffer[y][x][1] = (unsigned char)(g + 0.5f);
+        frame_buffer[y][x][2] = (unsigned char)(b + 0.5f);
+
         r += mr;
         g += mg;
         b += mb;
     }
 }
 
+/*void FillScanLine(int x, float yStart, float yEnd, unsigned char r, unsigned char g, unsigned char b) {
+    int y, yMin = ceil(fmin(yStart, yEnd)), yMax = floor(fmax(yStart, yEnd));
+    for (y = yMin; y <= yMax; y++) {
+        setPixel(x, y, r, g, b);
+    }
+}*/
+
+
 // The main triangle scan conversion function | เอาไว้วาดสามเหลี่ยมม
 // Assumes x0 <= x1 <= x2
 void ScanConvertTriangle(int vertices[3][2], unsigned char color[3][3]) {
     sortVertices(vertices); // Ensure vertices are sorted by x-coordinate
 
-    // Extract sorted vertices and associated colors
+    // Extract sorted vertices
     int x0 = vertices[0][0], y0 = vertices[0][1];
-    unsigned char r0 = color[0][0], g0 = color[0][1], b0 = color[0][2];
-
     int x1 = vertices[1][0], y1 = vertices[1][1];
-    unsigned char r1 = color[1][0], g1 = color[1][1], b1 = color[1][2];
-
     int x2 = vertices[2][0], y2 = vertices[2][1];
-    unsigned char r2 = color[2][0], g2 = color[2][1], b2 = color[2][2];
 
-    // Calculate the slopes of the triangle edges
-    float invSlope1 = (x1 - x0) != 0 ? (float)(y1 - y0) / (x1 - x0) : FLT_MAX;
-    float invSlope2 = (x2 - x1) != 0 ? (float)(y2 - y1) / (x2 - x1) : FLT_MAX;
-    float invSlope3 = (x2 - x0) != 0 ? (float)(y2 - y0) / (x2 - x0) : FLT_MAX;
+    // Calculate slopes for y-coordinates; handle vertical lines by checking divide-by-zero
+    float slope0 = x0 != x1 ? (float)(y1 - y0) / (x1 - x0) : 0.0;
+    float slope1 = x1 != x2 ? (float)(y2 - y1) / (x2 - x1) : 0.0;
+    float slope2 = x0 != x2 ? (float)(y2 - y0) / (x2 - x0) : 0.0;
 
-    // Interpolation factors for color gradients
-    float factor01 = (y1 - y0) != 0 ? 1.0f / (y1 - y0) : 0;
-    float factor02 = (y2 - y0) != 0 ? 1.0f / (y2 - y0) : 0;
-    float factor12 = (y2 - y1) != 0 ? 1.0f / (y2 - y1) : 0;
+    // Initialize starting points for y-coordinates on edges
+    float yCurr0 = y0, yCurr1 = y0;
 
-    // Start and end points for the x-coordinates
-    float curx1 = x0, curx2 = x0;
-    float curry1 = y0, curry2 = y0;
+    // For each column from x0 to x1-1, interpolate and fill pixels between edges L0,1 and L0,2
+    for (int x = x0; x < x1; x++) {
+        FillScanLine(x, yCurr0, yCurr1, color[0][0], color[0][1], color[0][2]); // Fill with color of vertex 0 as example
+        yCurr0 += slope0; // Move up along edge L0,1
+        yCurr1 += slope2; // Move up along edge L0,2
+    }
 
-    // Color values at the start and end of a scan line
-    float currR1 = r0, currG1 = g0, currB1 = b0;
-    float currR2 = r0, currG2 = g0, currB2 = b0;
+    // Reset starting point for y-coordinate on edge L1,2 for the second half of the triangle
+    yCurr0 = y1;
 
-    // Scan conversion of the triangle
-    for (int scanX = x0; scanX <= x2; scanX++) {
-        // Determine the y-coordinates and color at the start and end of this scan line
-        if (scanX < x1) {
-            curry1 = y0 + invSlope1 * (scanX - x0);
-            currR1 = r0 + (r1 - r0) * (curry1 - y0) * factor01;
-            currG1 = g0 + (g1 - g0) * (curry1 - y0) * factor01;
-            currB1 = b0 + (b1 - b0) * (curry1 - y0) * factor01;
-        }
-        else {
-            curry1 = y1 + invSlope2 * (scanX - x1);
-            currR1 = r1 + (r2 - r1) * (curry1 - y1) * factor12;
-            currG1 = g1 + (g2 - g1) * (curry1 - y1) * factor12;
-            currB1 = b1 + (b2 - b1) * (curry1 - y1) * factor12;
-        }
-        curry2 = y0 + invSlope3 * (scanX - x0);
-        currR2 = r0 + (r2 - r0) * (curry2 - y0) * factor02;
-        currG2 = g0 + (g2 - g0) * (curry2 - y0) * factor02;
-        currB2 = b0 + (b2 - b0) * (curry2 - y0) * factor02;
-
-        // Fill in the scan line
-        FillScanLine(scanX, curry1, currR1, currG1, currB1, curry2, currR2, currG2, currB2);
+    // For each column from x1 to x2, interpolate and fill pixels between edges L1,2 and L0,2
+    for (int x = x1; x <= x2; x++) {
+        FillScanLine(x, yCurr0, yCurr1, color[1][0], color[1][1], color[1][2]); // Fill with color of vertex 1 as example
+        yCurr0 += slope1; // Move up along edge L1,2
+        yCurr1 += slope2; // Continue moving up along edge L0,2
     }
 }
+/*
+void ScanConvertTriangle(
+    int x0, int y0, int r0, int g0, int b0,
+    int x1, int y1, int r1, int g1, int b1,
+    int x2, int y2, int r2, int g2, int b2)
+{
+    float l01_y, l01_m;
+    float l01_r, l01_g, l01_b, l01_mr, l01_mg, l01_mb;
+    float l02_y, l02_m;
+    float l02_r, l02_g, l02_b, l02_mr, l02_mg, l02_mb;
+    int x;
+
+    // Computes the slopes for L01 and L02
+    l01_m = (float)(y1 - y0) / (x1 - x0);
+    l01_mr = (float)(r1 - r0) / (x1 - x0);
+    l01_mg = (float)(g1 - g0) / (x1 - x0);
+    l01_mb = (float)(b1 - b0) / (x1 - x0);
+
+    l02_m = (float)(y2 - y0) / (x2 - x0);
+    l02_mr = (float)(r2 - r0) / (x2 - x0);
+    l02_mg = (float)(g2 - g0) / (x2 - x0);
+    l02_mb = (float)(b2 - b0) / (x2 - x0);
+
+    // Initializes the edge tracing
+    l01_y = y0;
+    l01_r = r0;
+    l01_g = g0;
+    l01_b = b0;
+
+    l02_y = y0;
+    l02_r = r0;
+    l02_g = g0;
+    l02_b = b0;
+
+    // Scan the first half of the triangle
+    // TODO: handle the case when x0==x1
+    for (x = x0; x < x1; x++) {
+        if (l02_y >= l01_y) {
+            FillScanLine(x, l02_y, l02_r, l02_g, l02_b, l01_y, l01_r, l01_g, l01_b);
+        }
+        else {
+            FillScanLine(x, l01_y, l01_r, l01_g, l01_b, l02_y, l02_r, l02_g, l02_b);
+        }
+
+        l01_y += l01_m;
+        l01_r += l01_mr;
+        l01_g += l01_mg;
+        l01_b += l01_mb;
+
+        l02_y += l02_m;
+        l02_r += l02_mr;
+        l02_g += l02_mg;
+        l02_b += l02_mb;
+    }
+
+    // Scan the second half of the triangle
+    // TODO: handle the case when x1==x2
+}
+*/
+
+/* Called when mouse button pressed: */
+/*
+void mousebuttonhandler(int button, int state, int x, int y)
+{
+    static int cnt = 0; // use to count the number of teh triangle
+    static int points[3][2]; // store point of triangle
+    static unsigned char color[3][3] = {  // array to store colorvalue of triangle
+      {255,   0,   0},      // r0, g0, b0
+      {  0, 255,   0},      // r1, g1, b1
+      {  0,   0, 255}       // r2, g2, b2
+    };
+
+    printf("Mouse button event, button=%d, state=%d, x=%d, y=%d\n", button, state, x, y);
+
+    // set a pixel's red color value when left mouse button is pressed down:
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+        points[cnt][0] = x;
+        points[cnt][1] = HEIGHT - y - 1;
+        cnt++;
+
+        // printf("Mouse clicked=%d, x=%d, y=%d\n", cnt, x, y);
+
+        if (cnt == 1) {
+            memset(frame_buffer, 0, sizeof(frame_buffer));
+        }
 
 
+        if (cnt == 3) {
+            // TODO: make sure point0, 1, 2 are passed in the correct order x0<=x1<=x2
+            if (points[0][0] <= points[1][0]) {
+                if (points[1][0] <= points[2][0]) { // x0 <= x1 <= x2
+                    ScanConvertTriangle(
+                        points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                        points[1][0], points[1][1], color[1][0], color[1][1], color[1][2],  // x1, y1, r1, g1, b1
+                        points[2][0], points[2][1], color[2][0], color[2][1], color[2][2]   // x2, y2, r2, g2, b2
+                    );
+                }
+                else
+                    if (points[0][0] <= points[2][0]) { // x0 <= x2 <= x1
+                        ScanConvertTriangle(
+                            points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                            points[2][0], points[2][1], color[2][0], color[2][1], color[2][2],  // x2, y2, r2, g2, b2
+                            points[1][0], points[1][1], color[1][0], color[1][1], color[1][2]   // x1, y1, r1, g1, b1
+                        );
+                    }
+                    else { // x2 <= x0 <= x1
+                        ScanConvertTriangle(
+                            points[2][0], points[2][1], color[2][0], color[2][1], color[2][2],  // x2, y2, r2, g2, b2
+                            points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                            points[1][0], points[1][1], color[1][0], color[1][1], color[1][2]   // x1, y1, r1, g1, b1
+                        );
+                    }
+            }
+            else { // x1 < x0
+                // TODO: fill in the rest here
+                if (points[1][0] < points[2][0] && points[2][0] < points[0][0]) { // x0 <= x1 <= x2
+                    ScanConvertTriangle(
+                        points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                        points[1][0], points[1][1], color[1][0], color[1][1], color[1][2],  // x1, y1, r1, g1, b1
+                        points[2][0], points[2][1], color[2][0], color[2][1], color[2][2]   // x2, y2, r2, g2, b2
+                    );
+                }
+                else
+                    if (points[0][0] <= points[2][0]) { // x0 <= x2 <= x1
+                        ScanConvertTriangle(
+                            points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                            points[2][0], points[2][1], color[2][0], color[2][1], color[2][2],  // x2, y2, r2, g2, b2
+                            points[1][0], points[1][1], color[1][0], color[1][1], color[1][2]   // x1, y1, r1, g1, b1
+                        );
+                    }
+                    else { // x2 <= x0 <= x1
+                        ScanConvertTriangle(
+                            points[1][0], points[1][1], color[1][0], color[1][1], color[1][2],  // x1, y1, r1, g1, b1
+                            points[0][0], points[0][1], color[0][0], color[0][1], color[0][2],  // x0, y0, r0, g0, b0
+                            points[2][0], points[2][1], color[2][0], color[2][1], color[2][2]   // x2, y2, r2, g2, b2
+                        );
+                    }
+            }
+            cnt = 0; // reset for new triangle
+        }
+    }
+
+
+    // cause a display event to occur for GLUT:
+    glutPostRedisplay(); // request for display update
+}
+*/
 void mousebuttonhandler(int button, int state, int x, int y) {
     static int cnt = 0;
     static int points[3][2];
@@ -132,19 +264,16 @@ void mousebuttonhandler(int button, int state, int x, int y) {
         {0, 0, 255}  // Blue
     };
 
-    printf("Mouse clicked=%d, x=%d, y=%d\n", cnt, x, y);
-
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
         points[cnt][0] = x;
         points[cnt][1] = HEIGHT - y - 1; // Convert GLUT's y-coordinate to frame buffer's coordinate system
         cnt++;
-        /*
+
         if (cnt == 1) {
             memset(frame_buffer, 0, sizeof(frame_buffer));
         }
-        */
+
         if (cnt == 3) {
-            memset(frame_buffer, 0, sizeof(frame_buffer));
             ScanConvertTriangle(points, color); // Call the modified scan conversion function
             cnt = 0; // Reset count for the next triangle
         }
