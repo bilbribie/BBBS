@@ -8,14 +8,6 @@
 #define HEIGHT 300	
 static GLubyte frame_buffer[HEIGHT][WIDTH][3];
 
-void setPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b) {  // นายซองค์ต้องมาแก้พาร์ทนี้ ಠ_ಠ
-    if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
-        frame_buffer[y][x][0] = r;
-        frame_buffer[y][x][1] = g;
-        frame_buffer[y][x][2] = b;
-    }
-}
-
 // Fill each scanline
 // yT = top of the scanline, yB = bottom of the scanline
 void FillScanLine(int x, float yT, float rT, float gT, float bT, float yB, float rB, float gB, float bB)
@@ -88,10 +80,10 @@ void ScanConvertTriangle(
     l02_g = g0;
     l02_b = b0;
 
-    l03_y = y0; // add this
-    l03_r = r0; // add this
-    l03_g = g0; // add this
-    l03_b = b0; // add this
+    l03_y = y1; // add this
+    l03_r = r1; // add this
+    l03_g = g1; // add this
+    l03_b = b1; // add this
 
     // Scan the first half of the triangle
     // TODO: handle the case when x0==x1
@@ -117,26 +109,30 @@ void ScanConvertTriangle(
     // Scan the second half of the triangle
     // TODO: handle the case when x1==x2
     for (x = x1; x < x2; x++) {
-        if (l02_y <= l01_y) {
-            // It's a vertical line, so we only need to call FillScanLine once
-            FillScanLine(x1, l02_y, l02_r, l02_g, l02_b, l01_y, l01_r, l01_g, l01_b);
+        if (x1 == x2) {
+            if (l02_y >= l03_y) {
+                FillScanLine(x, l02_y, l02_r, l02_g, l02_b, l03_y, l03_r, l03_g, l03_b);
+            }
+            else {
+                FillScanLine(x, l03_y, l03_r, l03_g, l03_b, l02_y, l02_r, l02_g, l02_b);
+            }
+        }
+        if (l02_y >= l03_y) {
+            FillScanLine(x, l02_y, l02_r, l02_g, l02_b, l03_y, l03_r, l03_g, l03_b);
         }
         else {
-            
-            FillScanLine(x, l02_y, l02_r, l02_g, l02_b, l03_y, l03_r, l03_g, l03_b);
-
-
-            l02_y += l02_m;
-            l02_r += l02_mr;
-            l02_g += l02_mg;
-            l02_b += l02_mb;
-
-            l03_y += l03_m;
-            l03_r += l03_mr;
-            l03_g += l03_mg;
-            l03_b += l03_mb;
-            
+            FillScanLine(x, l03_y, l03_r, l03_g, l03_b, l02_y, l02_r, l02_g, l02_b);
         }
+
+        l02_y += l02_m;
+        l02_r += l02_mr;
+        l02_g += l02_mg;
+        l02_b += l02_mb;
+
+        l03_y += l03_m;
+        l03_r += l03_mr;
+        l03_g += l03_mg;
+        l03_b += l03_mb;
     }
 }
 
