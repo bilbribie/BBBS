@@ -59,11 +59,18 @@ gmtl::Matrix44f plane_pose; // T, as defined in the handout, initialized to IDEN
 gmtl::Matrix44f cam_pose;   // C, as defined in the handout
 gmtl::Matrix44f view_mat;   // View transform is C^-1 (inverse of the camera transform C)
 
+gmtl::Matrix44f cam_pose_fixed;   // F, as defined in the handout 0_0
+gmtl::Matrix44f view_mat_fixed;   // View transform is F^-1 (inverse of the camera transform F)
+
 // Transformation matrices applied to plane and camera poses
 gmtl::Matrix44f ztransp_mat;
 gmtl::Matrix44f ztransn_mat;
 gmtl::Matrix44f zrotp_mat;
 gmtl::Matrix44f zrotn_mat;
+gmtl::Matrix44f yrotp_mat;
+gmtl::Matrix44f yrotn_mat;
+gmtl::Matrix44f xrotp_mat;
+gmtl::Matrix44f xrotn_mat;
 
 //|___________________
 //|
@@ -106,14 +113,34 @@ void InitMatrices()
   gmtl::invert(ztransn_mat, ztransp_mat);
 
   // Positive Z-rotation (roll)
-  zrotp_mat.set(COSTHETA, -SINTHETA, 0, 0,
-                SINTHETA,  COSTHETA, 0, 0,
-                       0,         0, 1, 0,
+  zrotp_mat.set(COSTHETA, 0, SINTHETA, 0,
+                       0, 1,        0, 0,
+               -SINTHETA, 0, COSTHETA, 0
                        0,         0, 0, 1);
   zrotp_mat.setState(gmtl::Matrix44f::ORTHOGONAL);                
 
-  // Negative Z-rotation (roll)
+  // Negative Z-rotation roll)
   gmtl::invert(zrotn_mat, zrotp_mat);
+
+  // Positive Y-rotation (yall)
+  yrotp_mat.set(COSTHETA, 0, SINTHETA, 0,
+                 0, 1, 0, 0,
+                -SINTHETA, 0, COSTHETA, 0,
+                0, 0, 0, 1);
+  yrotp_mat.setState(gmtl::Matrix44f::ORTHOGONAL);
+
+  // Negative Y-rotation (yall)
+  gmtl::invert(yrotn_mat, yrotp_mat);
+
+  // Positive X-rotation (pitch)
+  xrotp_mat.set(1, 0, 0, 0,
+                0, COSTHETA, -SINTHETA, 0,
+                0, SINTHETA, COSTHETA, 0,
+                0, 0, 0, 1);
+  xrotp_mat.setState(gmtl::Matrix44f::ORTHOGONAL);
+
+  // Negative X-rotation (pitch)
+  gmtl::invert(xrotn_mat, xrotp_mat);
 
   // Inits plane pose
   plane_pose.set(1, 0, 0,  1.0f,
@@ -129,7 +156,22 @@ void InitMatrices()
                0, 0, 0,  1.0f);
   cam_pose.setState(gmtl::Matrix44f::AFFINE);            
   gmtl::invert(view_mat, cam_pose);                 // View transform is the inverse of the camera pose
+
+  gmtl::Matrix44f rot_mat, trans_mat;
+  rot_mat.set(1, 0, 0, 0,
+      0, 0, 1, 0,
+      0, -1, 0, 0,
+      0, 0, 0, 1);
+  rot_mat, setState(gmtl::Matrix44f::ORTHOGONAL);
+  trans_mat.set(1, 0, 0, 0,
+      0, 1, 0, 20,
+      0, 0, 1, 0,
+      0, 0, 0, 1);
+  trans_mat.setState(gmtl::Matrix44f::TRANS);
+
 }
+
+
 
 //|____________________________________________________________________
 //|
@@ -256,6 +298,20 @@ void KeyboardFunc(unsigned char key, int x, int y)
       plane_pose = plane_pose * zrotn_mat;
       break;
 
+    case 'd': // Yaws the plane (+ Y-rot)
+        plane_pose = plane_pose * yrotp_mat;
+        break;
+    case 'a': // Yaws the plane (- Y-rot)
+        plane_pose = plane_pose * yrotn_mat;
+        break;
+
+    case 'x': // Pitches the plane (+ X-rot)
+        plane_pose = plane_pose * xrotp_mat;
+        break;
+    case 'w': // Pitches the plane (+ X-rot)
+        plane_pose = plane_pose * xrotn_mat;
+        break;
+
 
     // TODO: Add the remaining controls/transforms        
 
@@ -342,18 +398,27 @@ void DrawPlane(const float width, const float length, const float height)
   float w = width/2;
   float l = length/2;
   
-  glBegin(GL_TRIANGLES);
-    // Body is red
-    glColor3f( 1.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 0.0f,   l);
-	  glVertex3f(   w, 0.0f,  -l);
-	  glVertex3f(  -w, 0.0f,  -l);
+  //glBegin(GL_TRIANGLES);
+  //  // Body is red
+  //  glColor3f( 1.0f, 0.0f, 0.0f);
+  //  glVertex3f(0.0f, 0.0f,   l);
+	 // glVertex3f(   w, 0.0f,  -l);
+	 // glVertex3f(  -w, 0.0f,  -l);
 
-    // Wing is blue
-    glColor3f( 0.0f,    0.0f, 1.0f);
-    glVertex3f(0.0f,    0.0f, 0.0f);
-	  glVertex3f(0.0f,    0.0f,   -l);
-	  glVertex3f(0.0f,  height,   -l);
+  //  // Wing is blue
+  //  glColor3f( 0.0f,    0.0f, 1.0f);
+  //  glVertex3f(0.0f,    0.0f, 0.0f);
+	 // glVertex3f(0.0f,    0.0f,   -l);
+	 // glVertex3f(0.0f,  height,   -l);
+  //glEnd();
+
+  glBegin(GL_QUADS);
+  // Body is red
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(w2, h2, l2);
+    glVertex3f(-w2, h2, l2);
+    glVertex3f(-w2, -h2, l2);
+    glVertex3f(w2, -h2, l2);
   glEnd();
 }
 

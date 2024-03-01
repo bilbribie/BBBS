@@ -1,2 +1,13 @@
 ﻿  plane1_base.cpp
-  Assignment2.vcxproj -> C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\Debug\Assignment2.exe
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(116,24): error C2143: syntax error: missing ')' before 'constant'
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(116,24): error C2143: syntax error: missing ';' before 'constant'
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(116,42): error C2059: syntax error: ')'
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(401,17): error C2065: 'w2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(401,21): error C2065: 'h2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(401,25): error C2065: 'l2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(402,17): error C2065: 'w2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(402,22): error C2065: 'h2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(402,26): error C2065: 'l2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(403,16): error C2065: 'w2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(403,21): error C2065: 'h2': undeclared identifier
+C:\Users\Beebie\Documents\y3\BBBS\Assignment2\Assignment2\plane1_base.cpp(403,25): error C2065: 'l2': undeclared identifier
