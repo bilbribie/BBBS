@@ -115,7 +115,7 @@ void InitMatrices()
   // Positive Z-rotation (roll)
   zrotp_mat.set(COSTHETA, 0, SINTHETA, 0,
                        0, 1,        0, 0,
-               -SINTHETA, 0, COSTHETA, 0
+               -SINTHETA, 0, COSTHETA, 0,
                        0,         0, 0, 1);
   zrotp_mat.setState(gmtl::Matrix44f::ORTHOGONAL);                
 
@@ -162,7 +162,7 @@ void InitMatrices()
       0, 0, 1, 0,
       0, -1, 0, 0,
       0, 0, 0, 1);
-  rot_mat, setState(gmtl::Matrix44f::ORTHOGONAL);
+  rot_mat.setState(gmtl::Matrix44f::ORTHOGONAL);
   trans_mat.set(1, 0, 0, 0,
       0, 1, 0, 20,
       0, 0, 1, 0,
@@ -290,13 +290,13 @@ void KeyboardFunc(unsigned char key, int x, int y)
       plane_pose = plane_pose * ztransn_mat;
       break;
 
-
+    // TODO: Add the remaining controls/transforms        
     case 'e': // Rolls the plane (+ Z-rot)
-      plane_pose = plane_pose * zrotp_mat;
-      break;
+        plane_pose = plane_pose * zrotp_mat;
+        break;
     case 'q': // Rolls the plane (- Z-rot)
-      plane_pose = plane_pose * zrotn_mat;
-      break;
+        plane_pose = plane_pose * zrotn_mat;
+        break;
 
     case 'd': // Yaws the plane (+ Y-rot)
         plane_pose = plane_pose * yrotp_mat;
@@ -312,9 +312,6 @@ void KeyboardFunc(unsigned char key, int x, int y)
         plane_pose = plane_pose * xrotn_mat;
         break;
 
-
-    // TODO: Add the remaining controls/transforms        
-
 //|____________________________________________________________________
 //|
 //| Camera controls
@@ -328,6 +325,26 @@ void KeyboardFunc(unsigned char key, int x, int y)
       break;
 
     // TODO: Add the remaining controls
+    case 'o': // Rolls the camara (+ Z-rot)
+        cam_pose = cam_pose * zrotp_mat;
+        break;
+    case 'u': // Rolls the camara (- Z-rot)
+        cam_pose = cam_pose * zrotp_mat;
+        break;
+
+    case 'l': // Yaws the camara (+ Y-rot)
+        cam_pose = cam_pose * yrotp_mat;
+        break;
+    case 'j': // Yaws the camara (- Y-rot)
+        cam_pose = cam_pose * yrotp_mat;
+        break;
+
+    case ',': // Pitches the camara (+ X-rot)
+        cam_pose = cam_pose * xrotp_mat;
+        break;
+    case 'i': // Pitchs the camara (- X-rot)
+        cam_pose = cam_pose * xrotp_mat;
+        break;
   }
 
   gmtl::invert(view_mat, cam_pose);       // Updates view transform to reflect the change in camera transform
@@ -397,6 +414,10 @@ void DrawPlane(const float width, const float length, const float height)
 {
   float w = width/2;
   float l = length/2;
+
+  float w2 = width / 2;
+  float h2 = height / 2;
+  float l2 = length / 2;
   
   //glBegin(GL_TRIANGLES);
   //  // Body is red
