@@ -284,7 +284,7 @@ void KeyboardFunc(unsigned char key, int x, int y)
 //|____________________________________________________________________
 
     case 's': // Forward translation of the plane (positive Z-translation)
-      plane_pose = plane_pose * ztransp_mat;
+      plane_pose = plane_pose * ztransp_mat; // 0_0
       break;
     case 'f': // Backward translation of the plane
       plane_pose = plane_pose * ztransn_mat;

@@ -1,1 +1,2 @@
-﻿  Assignment2.vcxproj -> C:\Users\Beebie\Documents\git\BBBS\Assignment2\Assignment2\Debug\Assignment2.exe
+﻿  plane1_base.cpp
+C:\Users\Beebie\Documents\git\BBBS\Assignment2\Assignment2\plane1_base.cpp : fatal  error C1090: PDB API call failed, error code '3': C:\Users\Beebie\Documents\git\BBBS\Assignment2\Assignment2\Debug\vc143.pdb
