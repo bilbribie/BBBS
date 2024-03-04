@@ -43,6 +43,10 @@ const float P_HEIGHT = 1.5;
 // Camera's view frustum 
 const float CAM_FOV  = 60.0f;     // Field of view in degs
 
+// Top-down camera's view settings (New Added)
+const float TD_CAM_HEIGHT = 20.0f;  // Height of the top-down camera above the scene
+const float TD_CAM_ANGLE = 90.0f;   // Angle between the camera's view direction and the positive Z-axis
+
 //|___________________
 //|
 //| Global Variables
@@ -252,17 +256,30 @@ void DisplayFunc(void)
 //| TODO: Viewport 2 rendering: shows the fixed top-down view
 //|____________________________________________________________________
 
-  // glViewport...
+  glViewport(w_width / 2, 0, (GLsizei)w_width / 2, (GLsizei)w_height); // Sets the viewport for the top-down view
 
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  gluPerspective(CAM_FOV, (float)w_width/(2*w_height), 0.1f, 100.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(-10.0, 10.0, -10.0, 10.0, 0.1, 100.0); // Set up an orthographic projection
 
-  // glMatrixMode(GL_MODELVIEW);
-  // glLoadIdentity(); 
-  // ...
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+// Set up the camera for the top-down view. We look down along the Y-axis (from a positive Y value),
+// at the origin, with the Z-axis pointing up.
+gluLookAt(0.0, TD_CAM_HEIGHT, 0.0,  // Camera is positioned directly above the scene
+    0.0, 0.0, 0.0,           // Looking at the origin
+    0.0, 0.0, 1.0);          // Z-axis is up
 
-  glFlush();
+// Draws world coordinate frame (same as in the first viewport)
+DrawCoordinateFrame(10);
+
+// Draws the plane from top-down view
+// No need to multiply by view_mat as we're setting the view directly with gluLookAt
+glLoadMatrixf(plane_pose.mData); // Apply plane's current transformation for consistency
+DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
+DrawCoordinateFrame(3); // Draw the plane's local coordinate frame
+
+glFlush();
 }
 
 //|____________________________________________________________________
