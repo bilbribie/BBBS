@@ -76,7 +76,7 @@ void DisplayFunc(void);
 void KeyboardFunc(unsigned char key, int x, int y);
 void ReshapeFunc(int w, int h);
 void DrawCoordinateFrame(const float l);
-void DrawPlane(const float width, const float length, const float height);
+void DrawPlane(float wingWidth, float wingLength, float bodyWidth, float bodyLength, float bodyHeight);
 
 //|____________________________________________________________________
 //|
@@ -160,42 +160,73 @@ void InitGL(void)
 //! Draws the plane.
 //|____________________________________________________________________
 
-void DrawPlane(float baseWidth, float length, float height) {
-    float halfBaseWidth = baseWidth / 2.0f;
+void DrawPlane(float wingWidth, float wingLength, float bodyWidth, float bodyLength, float bodyHeight) {
+    // Calculate half dimensions for easier positioning
+    float halfBodyWidth = bodyWidth / 2.0f;
+    float halfWingWidth = wingWidth / 2.0f;
+    float wingBodyIntersectionLength = bodyLength * 0.75f; // Adjust this value to control where the wing blends into the body
 
-    // Begin drawing primitives
+    // Start drawing
     glBegin(GL_TRIANGLES);
 
-    // Body of the plane - triangular prism
-    // Base of the prism
-    glColor3f(0.8f, 0.8f, 0.8f); // Light gray color for the body base
-    glVertex3f(-halfBaseWidth, 0.0f, 0.0f); // Left back corner of the base
-    glVertex3f(halfBaseWidth, 0.0f, 0.0f); // Right back corner of the base
-    glVertex3f(0.0f, 0.0f, -length); // Front center of the base (nose)
+    // Set color for the wings
+    glColor3f(1.0f, 1.0f, 1.0f); // White for the wing
 
-    // Left side of the prism
-    glColor3f(0.6f, 0.6f, 0.6f); // Darker shade for the side
-    glVertex3f(-halfBaseWidth, 0.0f, 0.0f); // Left back corner of the base
-    glVertex3f(0.0f, height, -length / 2.0f); // Top center of the prism
-    glVertex3f(0.0f, 0.0f, -length); // Front center of the base (nose)
+    // Left Wing - modified to connect smoothly
+    glVertex3f(-halfBodyWidth, 0.0f, wingBodyIntersectionLength); // Inner point of the wing close to the body's front
+    glVertex3f(-halfWingWidth, 0.0f, wingLength); // Wing tip
+    glVertex3f(-halfBodyWidth, 0.0f, 0.0f); // Adjusted to make a smooth connection
 
-    // Right side of the prism
-    glColor3f(0.6f, 0.6f, 0.6f); // Darker shade for the side
-    glVertex3f(halfBaseWidth, 0.0f, 0.0f); // Right back corner of the base
-    glVertex3f(0.0f, 0.0f, -length); // Front center of the base (nose)
-    glVertex3f(0.0f, height, -length / 2.0f); // Top center of the prism
+    // Right Wing - modified to connect smoothly
+    glVertex3f(halfBodyWidth, 0.0f, wingBodyIntersectionLength); // Inner point of the wing close to the body's front
+    glVertex3f(halfWingWidth, 0.0f, wingLength); // Wing tip
+    glVertex3f(halfBodyWidth, 0.0f, 0.0f); // Adjusted to make a smooth connection
 
-    // Back side of the prism (not visible if looking from the front)
-    glColor3f(0.6f, 0.6f, 0.6f); // Darker shade for the back side
-    glVertex3f(-halfBaseWidth, 0.0f, 0.0f); // Left back corner of the base
-    glVertex3f(halfBaseWidth, 0.0f, 0.0f); // Right back corner of the base
-    glVertex3f(0.0f, height, -length / 2.0f); // Top center of the prism
 
-    // Wings of the plane (unchanged from previous example)
-    // ... (wing drawing code remains the same)
+    // Base of the body (top face, now bottom since we're flipping it)
+    glColor3f(0.8f, 0.8f, 0.8f); // Darker shade for the body
+    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
+    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
+
+    glColor3f(0.6f, 0.6f, 0.6f); // Even darker shade for the top to emphasize the slope
+    // Left slope
+    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
+    glVertex3f(-halfBodyWidth, 0.0f, bodyLength);
+
+    // Right slope
+    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
+    glVertex3f(halfBodyWidth, 0.0f, bodyLength);
+
+    // Left side of the body
+    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the side to give a 3D effect
+    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(-halfBodyWidth, 0.0f, bodyLength);
+    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
+    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
+
+    // Right side of the body
+    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the side to give a 3D effect
+    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(halfBodyWidth, 0.0f, bodyLength);
+    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
+    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
+
+    // Back face of the body
+    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the back to give depth
+    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
+    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
+    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
+
+
+    
 
     glEnd();
 }
+
 
 
 
@@ -230,7 +261,12 @@ void DisplayFunc(void) {
     glMultMatrixf(plane_pose.getData());
 
     // Draw the paper plane
-    DrawPlane(1.0f, 2.0f, 0.2f); // Example call with specific dimensions
+    float wingWidth = 1.5f;
+    float wingLength = 3.0f;
+    float bodyWidth = 0.125f;
+    float bodyLength = 2.5f;
+    float bodyHeight = 0.5f;
+    DrawPlane(wingWidth, wingLength, bodyWidth, bodyLength, bodyHeight);
 
     glutSwapBuffers();
 }
