@@ -258,6 +258,7 @@ void DisplayFunc(void)
 
   glViewport(w_width / 2, 0, (GLsizei)w_width / 2, (GLsizei)w_height); // Sets the viewport for the top-down view
 
+<<<<<<< HEAD
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(-10.0, 10.0, -10.0, 10.0, 0.1, 100.0); // Set up an orthographic projection
@@ -278,8 +279,30 @@ void DisplayFunc(void)
   glLoadMatrixf(plane_pose.mData); // Apply plane's current transformation for consistency
   DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
   DrawCoordinateFrame(3); // Draw the plane's local coordinate frame
+=======
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(-10.0, 10.0, -10.0, 10.0, 0.1, 100.0); // Set up an orthographic projection
 
-  glFlush();
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+// Set up the camera for the top-down view. We look down along the Y-axis (from a positive Y value),
+// at the origin, with the Z-axis pointing up.
+gluLookAt(0.0, TD_CAM_HEIGHT, 0.0,  // Camera is positioned directly above the scene
+    0.0, 0.0, 0.0,           // Looking at the origin
+    0.0, 0.0, 1.0);          // Z-axis is up
+>>>>>>> 0aef8bf1b952edd80997a100f66b799d916157c8
+
+// Draws world coordinate frame (same as in the first viewport)
+DrawCoordinateFrame(10);
+
+// Draws the plane from top-down view
+// No need to multiply by view_mat as we're setting the view directly with gluLookAt
+glLoadMatrixf(plane_pose.mData); // Apply plane's current transformation for consistency
+DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
+DrawCoordinateFrame(3); // Draw the plane's local coordinate frame
+
+glFlush();
 }
 
 //|____________________________________________________________________
