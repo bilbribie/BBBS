@@ -43,6 +43,10 @@ const float P_HEIGHT = 1.5;
 // Camera's view frustum 
 const float CAM_FOV  = 60.0f;     // Field of view in degs
 
+// Top-down camera's view settings (New Added)
+const float TD_CAM_HEIGHT = 20.0f;  // Height of the top-down camera above the scene
+const float TD_CAM_ANGLE = 90.0f;   // Angle between the camera's view direction and the positive Z-axis
+
 //|___________________
 //|
 //| Global Variables
@@ -212,11 +216,11 @@ void DisplayFunc(void)
 //| Viewport 1 rendering: shows the moving camera's view
 //|____________________________________________________________________
 
-  glViewport(0, 0, (GLsizei) w_width/2, (GLsizei) w_height);
+  glViewport(0, 0, (GLsizei)w_width / 2, (GLsizei)w_height);
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(CAM_FOV, (float)w_width/(2*w_height), 0.1f, 100.0f);     // Check MSDN: google "gluPerspective msdn"
+  gluPerspective(CAM_FOV, (float)w_width / (2 * w_height), 0.1f, 100.0f);     // Check MSDN: google "gluPerspective msdn"
 
   // Approach1
   glMatrixMode(GL_MODELVIEW);
@@ -233,34 +237,47 @@ void DisplayFunc(void)
   DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
   DrawCoordinateFrame(3);
 
-/*
-  // Approach 2 (gives the same results as the approach 1)
-  glMatrixMode(GL_MODELVIEW);
+  /*
+    // Approach 2 (gives the same results as the approach 1)
+    glMatrixMode(GL_MODELVIEW);
 
-  // Draws world coordinate frame
-  glLoadMatrixf(view_mat.mData);             // M = C^-1
-  DrawCoordinateFrame(10);
+    // Draws world coordinate frame
+    glLoadMatrixf(view_mat.mData);             // M = C^-1
+    DrawCoordinateFrame(10);
 
-  // Draws plane and its local frame
-  glMultMatrixf(plane_pose.mData);           // M = C^-1 * T (OpenGL calls build transforms in left-to-right order)
-  DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
-  DrawCoordinateFrame(3);
-*/
+    // Draws plane and its local frame
+    glMultMatrixf(plane_pose.mData);           // M = C^-1 * T (OpenGL calls build transforms in left-to-right order)
+    DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
+    DrawCoordinateFrame(3);
+  */
 
 //|____________________________________________________________________
 //|
 //| TODO: Viewport 2 rendering: shows the fixed top-down view
 //|____________________________________________________________________
 
-  // glViewport...
+  glViewport(w_width / 2, 0, (GLsizei)w_width / 2, (GLsizei)w_height); // Sets the viewport for the top-down view
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(CAM_FOV, (float)w_width/(2*w_height), 0.1f, 100.0f);
+  glOrtho(-10.0, 10.0, -10.0, 10.0, 0.1, 100.0); // Set up an orthographic projection
 
-  // glMatrixMode(GL_MODELVIEW);
-  // glLoadIdentity(); 
-  // ...
+  glMatrixMode(GL_MODELVIEW);
+  glLoadIdentity();
+  // Set up the camera for the top-down view. We look down along the Y-axis (from a positive Y value),
+  // at the origin, with the Z-axis pointing up.
+  gluLookAt(0.0, TD_CAM_HEIGHT, 0.0,  // Camera is positioned directly above the scene
+      0.0, 0.0, 0.0,           // Looking at the origin
+      0.0, 0.0, 1.0);          // Z-axis is up
+
+  // Draws world coordinate frame (same as in the first viewport)
+  DrawCoordinateFrame(10);
+
+  // Draws the plane from top-down view
+  // No need to multiply by view_mat as we're setting the view directly with gluLookAt
+  glLoadMatrixf(plane_pose.mData); // Apply plane's current transformation for consistency
+  DrawPlane(P_WIDTH, P_LENGTH, P_HEIGHT);
+  DrawCoordinateFrame(3); // Draw the plane's local coordinate frame
 
   glFlush();
 }
@@ -410,37 +427,32 @@ void DrawCoordinateFrame(const float l)
 //! Draws the plane.
 //|____________________________________________________________________
 
-void DrawPlane(const float width, const float length, const float height)
-{
-  float w = width/2;
-  float l = length/2;
+void DrawPlane(const float baseWidth, const float length, const float height) {
+    float halfBaseWidth = baseWidth / 2.0f; // Half the width from center to wingtip
+    float wingTipHeight = height; // Slight elevation at the wing tips
 
-  float w2 = width / 2;
-  float h2 = height / 2;
-  float l2 = length / 2;
-  
-  //glBegin(GL_TRIANGLES);
-  //  // Body is red
-  //  glColor3f( 1.0f, 0.0f, 0.0f);
-  //  glVertex3f(0.0f, 0.0f,   l);
-	 // glVertex3f(   w, 0.0f,  -l);
-	 // glVertex3f(  -w, 0.0f,  -l);
+    // Begin drawing primitives
+    glBegin(GL_TRIANGLES);
 
-  //  // Wing is blue
-  //  glColor3f( 0.0f,    0.0f, 1.0f);
-  //  glVertex3f(0.0f,    0.0f, 0.0f);
-	 // glVertex3f(0.0f,    0.0f,   -l);
-	 // glVertex3f(0.0f,  height,   -l);
-  //glEnd();
+    // White color for the paper plane
+    glColor3f(1.0f, 1.0f, 1.0f);
 
-  glBegin(GL_QUADS);
-  // Body is red
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex3f(w2, h2, l2);
-    glVertex3f(-w2, h2, l2);
-    glVertex3f(-w2, -h2, l2);
-    glVertex3f(w2, -h2, l2);
-  glEnd();
+    // Front Triangle (Nose to Wingtips)
+    glVertex3f(0.0f, 0.0f, length); // Nose of the plane
+    glVertex3f(-halfBaseWidth, 0.0f, 0.0f); // Left wingtip
+    glVertex3f(halfBaseWidth, 0.0f, 0.0f); // Right wingtip
+
+    // Left Wing
+    glVertex3f(-halfBaseWidth, 0.0f, 0.0f); // Left wingtip
+    glVertex3f(-halfBaseWidth, wingTipHeight, -length / 3.0f); // Left wingtip upward fold
+    glVertex3f(0.0f, 0.0f, length); // Nose of the plane
+
+    // Right Wing
+    glVertex3f(halfBaseWidth, 0.0f, 0.0f); // Right wingtip
+    glVertex3f(0.0f, 0.0f, length); // Nose of the plane
+    glVertex3f(halfBaseWidth, wingTipHeight, -length / 3.0f); // Right wingtip upward fold
+
+    glEnd();
 }
 
 //|____________________________________________________________________
