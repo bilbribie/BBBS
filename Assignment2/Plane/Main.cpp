@@ -41,7 +41,7 @@ const float P_LENGTH = 3;
 const float P_HEIGHT = 1.5;
 
 // Camera's view frustum 
-const float CAM_FOV = 25.0f;     // Field of view in degs
+const float CAM_FOV = 35.0f;     // Field of view in degs
 
 //|___________________
 //|
@@ -49,7 +49,7 @@ const float CAM_FOV = 25.0f;     // Field of view in degs
 //|___________________
 
 // Track window dimensions, initialized to 800x600
-int w_width = 800;
+int w_width = 1500;
 int w_height = 600;
 
 // Plane pose (position & orientation)
@@ -182,13 +182,6 @@ void DrawPlane(float wingWidth, float wingLength, float bodyWidth, float bodyLen
     glVertex3f(halfWingWidth, 0.0f, wingLength); // Wing tip
     glVertex3f(halfBodyWidth, 0.0f, 0.0f); // Adjusted to make a smooth connection
 
-
-    // Base of the body (top face, now bottom since we're flipping it)
-    glColor3f(0.8f, 0.8f, 0.8f); // Darker shade for the body
-    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
-    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
-    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
-
     glColor3f(0.6f, 0.6f, 0.6f); // Even darker shade for the top to emphasize the slope
     // Left slope
     glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
@@ -200,29 +193,6 @@ void DrawPlane(float wingWidth, float wingLength, float bodyWidth, float bodyLen
     glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
     glVertex3f(halfBodyWidth, 0.0f, bodyLength);
 
-    // Left side of the body
-    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the side to give a 3D effect
-    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
-    glVertex3f(-halfBodyWidth, 0.0f, bodyLength);
-    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
-    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
-
-    // Right side of the body
-    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the side to give a 3D effect
-    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
-    glVertex3f(halfBodyWidth, 0.0f, bodyLength);
-    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
-    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
-
-    // Back face of the body
-    glColor3f(0.7f, 0.7f, 0.7f); // Shade for the back to give depth
-    glVertex3f(-halfBodyWidth, 0.0f, 0.0f);
-    glVertex3f(halfBodyWidth, 0.0f, 0.0f);
-    glVertex3f(0.0f, bodyHeight, bodyLength / 2.0f); // Center top point now at bottom
-    glVertex3f(0.0f, -bodyHeight, bodyLength / 2.0f); // Center bottom point now at top
-
-
-    
 
     glEnd();
 }
@@ -243,11 +213,11 @@ void DrawPlane(float wingWidth, float wingLength, float bodyWidth, float bodyLen
 void DisplayFunc(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glViewport(0, 0, w_width, w_height);
+    glViewport(100, 100, w_width, w_height);
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(CAM_FOV, (GLfloat)w_width / (GLfloat)w_height, 0.1f, 100.0f);
+    gluPerspective(CAM_FOV, (GLfloat)w_width / (GLfloat)w_height, 0.5f, 100.0f);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
