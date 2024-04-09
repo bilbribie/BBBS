@@ -1,0 +1,245 @@
+﻿  Main.cpp
+C:\Users\USER\Documents\Code\Plane\Main.cpp(360,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(740,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(741,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(742,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(743,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(746,40): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(746,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(747,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(747,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(748,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(748,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(749,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(749,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(752,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(752,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(753,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(754,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(755,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(755,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(758,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(758,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(759,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(760,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(761,40): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(761,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(767,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(768,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(769,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(770,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(775,44): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(775,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(776,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(776,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(777,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(777,27): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(778,43): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(778,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(786,37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(786,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(786,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(787,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(787,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(787,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(788,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(788,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(788,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(789,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(789,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(789,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(792,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(792,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(793,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(793,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(794,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(794,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(795,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(795,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(798,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(798,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(798,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(799,37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(799,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(799,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(800,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(800,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(801,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(801,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(804,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(804,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(804,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(805,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(805,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(806,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(806,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(807,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(807,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(807,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(810,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(810,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(811,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(811,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(811,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(812,39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(812,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(812,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(813,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(813,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(816,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(816,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(817,37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(817,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(817,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(818,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(818,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(818,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(819,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(819,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(837,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(838,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(839,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(842,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(843,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(844,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(895,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(896,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(897,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(898,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(901,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(902,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(903,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(904,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(907,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(908,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(909,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(910,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(913,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(914,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(915,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(916,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(919,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(920,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(921,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(922,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(925,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(926,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(927,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(928,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(940,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(941,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(942,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(943,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(946,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(947,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(952,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(955,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(958,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(961,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(964,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(965,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\USER\Documents\Code\Plane\Main.cpp(992,19): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(997,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(998,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(999,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1000,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1003,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1004,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1005,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1006,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1009,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1010,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1011,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1012,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1015,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1016,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1017,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1018,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1021,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1022,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1023,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1024,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1027,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1028,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1029,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1030,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1057,30): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1057,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1057,19): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1062,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1063,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1064,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1065,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1068,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1069,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1070,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1071,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1074,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1075,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1076,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1077,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1080,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1081,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1082,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1083,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1086,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1087,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1088,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1089,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1092,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1093,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1094,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1095,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1109,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1109,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1115,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1116,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1117,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1118,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1121,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1122,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1123,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1124,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1127,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1128,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1129,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1130,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1133,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1134,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1135,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1136,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1139,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1140,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1141,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1142,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1145,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1146,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1147,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1148,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1175,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1175,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1180,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1181,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1182,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1183,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1186,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1187,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1188,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1189,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1192,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1193,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1194,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1195,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1198,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1199,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1200,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1201,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1204,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1205,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1206,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1207,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1210,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1211,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1212,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\USER\Documents\Code\Plane\Main.cpp(1213,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  Plane.vcxproj -> C:\Users\USER\Documents\Code\Plane\Debug\Plane.exe
